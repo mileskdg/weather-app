@@ -17,6 +17,7 @@ const RightSection = ({ location }: Props) => {
     );
 
   if (error || !data)
+    
     return (
       <Text color="red.400" textAlign="center">
         City not found. Please try another location.
