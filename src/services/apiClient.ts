@@ -17,7 +17,7 @@ interface currentConditions {
 }
 
 export interface Location {
-  address: string;
+  resolvedAddress: string;
   timezone: string;
   days: Day[];
   currentConditions: currentConditions;

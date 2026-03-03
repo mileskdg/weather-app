@@ -1,11 +1,14 @@
-import { Box, Grid } from "@chakra-ui/react";
+import { Box, Grid, Spinner, Text } from "@chakra-ui/react";
 import NavBar from "./components/NavBar";
 import LeftSection from "./components/LeftSection";
 import RightSection from "./components/RightSection";
 import { useEffect, useState } from "react";
+import useWeather from "./hooks/useWeather";
+import bgMap from "./utils/bgMap";
 
 function App() {
-  const [location, setLocation] = useState("Seoul");
+  const [location, setLocation] = useState("Bloemfontein");
+  const { data, isLoading, error } = useWeather(location);
 
   useEffect(() => {
     const stored = localStorage.getItem("chakra-ui-color-mode");
@@ -15,14 +18,14 @@ function App() {
     }
   }, []);
 
+  if (isLoading) return <Spinner />;
+  if (error) return <Text>{error.message}</Text>;
+
   return (
     <Box
       p={6}
       minH="100vh"
-      backgroundImage={{
-        base: "url('/images/base-schaefchen.jpg')",
-        lg: "url('/images/lg-background.jpg')",
-      }}
+      backgroundImage={`url(${bgMap[data.days[1].icon as keyof typeof bgMap]})`}
       backgroundSize="cover"
       backgroundPosition="center"
       backgroundRepeat="no-repeat"

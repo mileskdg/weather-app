@@ -31,8 +31,8 @@ const LeftSection = ({ location }: Props) => {
       {/* Location */}
       <Box>
         <Box display="flex" flexDirection="column" alignItems="center">
-          <Text>
-            <i className="bi bi-geo-alt-fill"></i> {data.address}
+          <Text noOfLines={1}>
+            <i className="bi bi-geo-alt-fill"></i> {data.resolvedAddress}
           </Text>
           <Text>{localTime}</Text>
         </Box>
@@ -57,9 +57,9 @@ const LeftSection = ({ location }: Props) => {
       {/* Temperature */}
       <Box>
         <Text>
-          <i className="bi bi-arrow-up" />
-          {data.days[1].feelslikemin}°C / {data.days[1].feelslikemax}°C{" "}
           <i className="bi bi-arrow-down" />
+          {data.days[1].feelslikemin}°C / {data.days[1].feelslikemax}°C{" "}
+          <i className="bi bi-arrow-up" />
         </Text>
       </Box>
     </Box>
