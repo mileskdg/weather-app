@@ -10,7 +10,7 @@ import "bootstrap-icons/font/bootstrap-icons.css";
 const client = new QueryClient();
 const theme = extendTheme({
   config: {
-    initialColorMode: "light",
+    initialColorMode: "dark",
     useSystemColorMode: false,
   },
 });
@@ -18,7 +18,7 @@ const theme = extendTheme({
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
     <QueryClientProvider client={client}>
-      <ColorModeScript initialColorMode="light" />
+      <ColorModeScript initialColorMode="dark" />
       <ChakraProvider theme={theme}>
         <App />
         <ReactQueryDevtools />
