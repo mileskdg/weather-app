@@ -6,7 +6,6 @@ import { ChakraProvider, ColorModeScript, extendTheme } from "@chakra-ui/react";
 import App from "./App";
 import "./index.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
-import { config } from "mathjs";
 
 const client = new QueryClient();
 const theme = extendTheme({
