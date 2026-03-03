@@ -17,7 +17,6 @@ const RightSection = ({ location }: Props) => {
     );
 
   if (error || !data)
-    
     return (
       <Text color="red.400" textAlign="center">
         City not found. Please try another location.
@@ -50,11 +49,17 @@ const RightSection = ({ location }: Props) => {
       </Box>
 
       {/* Recent weather grid */}
-      <Grid templateColumns="repeat(3, 1fr)" gap={2} minH="20vh" w="100%">
+      <Grid
+        templateColumns="repeat(3, minmax(0, 1fr))"
+        gap={2}
+        minH="20vh"
+        w="100%"
+      >
         {data.days.map((d, i) => (
           <GridItem
             key={i}
             p={2}
+            w="100%"
             display="flex"
             flexDirection="column"
             justifyContent="space-evenly"
@@ -69,9 +74,9 @@ const RightSection = ({ location }: Props) => {
           >
             {iconMap[d.icon as keyof typeof iconMap]}{" "}
             {/* Render icon directly */}
-            <Text>
+            <Text textAlign="center" noOfLines={1} w="100%">
               {new Date(d.datetime).toLocaleDateString("en-US", {
-                weekday: "long",
+                weekday: "short",
               })}
             </Text>
             <Box display="flex" gap={1}>
