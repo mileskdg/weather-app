@@ -1,11 +1,11 @@
-import React, { useEffect } from "react";
-import ReactDOM from "react-dom/client";
+import { ChakraProvider, ColorModeScript, extendTheme } from "@chakra-ui/react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
-import { ChakraProvider, ColorModeScript, extendTheme } from "@chakra-ui/react";
+import "bootstrap-icons/font/bootstrap-icons.css";
+import React from "react";
+import ReactDOM from "react-dom/client";
 import App from "./App";
 import "./index.css";
-import "bootstrap-icons/font/bootstrap-icons.css";
 
 const client = new QueryClient();
 const theme = extendTheme({
@@ -14,14 +14,6 @@ const theme = extendTheme({
     useSystemColorMode: false,
   },
 });
-
-useEffect(() => {
-  const stored = localStorage.getItem("chakra-ui-color-mode");
-
-  if (stored === "light") {
-    localStorage.setItem("chakra-ui-color-mode", "dark");
-  }
-}, []);
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>

@@ -2,10 +2,18 @@ import { Box, Grid } from "@chakra-ui/react";
 import NavBar from "./components/NavBar";
 import LeftSection from "./components/LeftSection";
 import RightSection from "./components/RightSection";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function App() {
   const [location, setLocation] = useState("Seoul");
+
+  useEffect(() => {
+    const stored = localStorage.getItem("chakra-ui-color-mode");
+
+    if (stored === "light") {
+      localStorage.setItem("chakra-ui-color-mode", "dark");
+    }
+  }, []);
 
   return (
     <Box
