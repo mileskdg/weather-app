@@ -40,7 +40,9 @@ const LeftSection = ({ location }: Props) => {
       {/* Date */}
       <Box display="flex" flexDirection="column" alignItems="center">
         <Text>
-          {new Date().toLocaleDateString("en-us", { weekday: "long" })}
+          {new Date(data.days[1].datetime).toLocaleDateString("en-us", {
+            weekday: "long",
+          })}
         </Text>
         <Text>{data.days[0].datetime.replace(/-/g, " ")}</Text>
       </Box>
