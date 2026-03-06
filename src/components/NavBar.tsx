@@ -16,17 +16,26 @@ const NavBar = ({ setLocation }: Props) => {
   };
 
   return (
-    <Box display="flex" alignItems="center" justifyContent="center" gap={1}>
-      <Input
-        onChange={(e) => setInput(e.target.value)}
-        value={input}
-        w={{ base: "60%", lg: "30%" }}
-        placeholder="Search Location..."
-      />
-      <Button onClick={handleSearch} colorScheme="blue" w="5%">
-        <i className="bi bi-search"></i>
-      </Button>
-    </Box>
+    <form
+      onSubmit={(e) => {
+        e.preventDefault();
+
+        handleSearch();
+      }}
+    >
+      <Box display="flex" alignItems="center" justifyContent="center" gap={1}>
+        {" "}
+        <Input
+          onChange={(e) => setInput(e.target.value)}
+          value={input}
+          w={{ base: "60%", lg: "30%" }}
+          placeholder="Search Location..."
+        />
+        <Button type="submit" colorScheme="blue" w="5%">
+          <i className="bi bi-search"></i>
+        </Button>
+      </Box>
+    </form>
   );
 };
 
